@@ -37,7 +37,7 @@ while (ticketNumber <= endingTicket) {
 
 Promise.all(axiosArray).then((values) => {
     for(let i = 0; i < values.length; i++) {
-        console.log(JSON.stringify(values[i].data[0].ticket_id) + "\n" + values[i].data[0].body_text);
+        console.log(JSON.stringify(values[i].data[0]) + JSON.stringify(values[i].data[0].ticket_id) + "\n" + values[i].data[0].body_text + "\n\n");
     }
   });
 
