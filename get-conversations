@@ -42,9 +42,9 @@ while (ticketNumber <= endingTicket) {
 
 Promise.all(axiosArray).then((values) => {
     for(let i = 0; i < values.length; i++) {
-        if (values[i].data[0]) {
-            let conversationLength = values[i].data.length;
-            
+        let conversationLength = values[i].data.length;
+
+        if (conversationLength > 0) {
             for(let j = 0; j < conversationLength; j++) {
                 console.log(values[i].data[j]['body_text'] + '\n');
             }
@@ -52,6 +52,6 @@ Promise.all(axiosArray).then((values) => {
             break;
         }
     }
-  });
+});
 
 rl.close();
