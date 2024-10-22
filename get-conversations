@@ -30,7 +30,7 @@ let axiosArray = [];
 
 while (ticketNumber <= endingTicket) {
     axiosArray.push(
-        axios.get(`${url}/tickets/${ticketNumber}`, {
+        axios.get(`${url}/tickets/${ticketNumber}/conversations`, {
             headers: {
                 Authorization: `Basic ${btoa(key)}`,
                 Accept: 'application/json'
@@ -42,7 +42,15 @@ while (ticketNumber <= endingTicket) {
 
 Promise.all(axiosArray).then((values) => {
     for(let i = 0; i < values.length; i++) {
-        console.log(values[i]['data']['description_text']);
+        if (values[i].data[0]) {
+            let conversationLength = values[i].data.length;
+            
+            for(let j = 0; j < conversationLength; j++) {
+                console.log(values[i].data[j]['body_text'] + '\n');
+            }
+        } else {
+            break;
+        }
     }
   });
 
