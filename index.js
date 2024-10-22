@@ -1,3 +1,8 @@
+/*
+Make sure that you are logged in to Freshdesk before running this script.
+Otherwise you will get an error prompting you to do so.
+*/
+
 import axios from 'axios';
 import 'dotenv/config'
 import readline from 'node:readline';
